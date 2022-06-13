@@ -1,0 +1,17 @@
+from selenium import webdriver
+import time
+
+navegador = webdriver.Chrome()
+
+navegador.get("https://www.uninove.br/cursos/graduacao/presencial/tecnologia-analise-desenvolvimento-de-sistemas")
+navegador.maximize_window()
+time.sleep(3)
+navegador.execute_script("window.scrollTo(0,document.body.scrollHeight/3);")
+time.sleep(3)
+navegador.find_element_by_xpath('//*[@id="__layout"]/div/main/div/div/div[3]/div/div/section/div/div[5]/div').click()
+time.sleep(3)
+texto = navegador.find_element_by_xpath('//*[@id="__layout"]/div/main/div/div/div[3]/div/div/section/div/div[5]/div[2]/div/div/div/div').text
+print(navegador.find_element_by_xpath('//*[@id="__layout"]/div/main/div/div/div[3]/div/div/section/div/div[5]/div[2]/div/div/div/div').text)
+
+arquivo = open('test.txt', 'a')
+arquivo.write(texto,'\n')
